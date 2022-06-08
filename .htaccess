@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+ 
+  # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
+ 
+ RewriteCond %{REQUEST_URI} ^(.*)//(.*)$
+  RewriteRule . %1/%2 [R=301,L]
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !=/favicon.ico
+  RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+  
+  
+
+#  RewriteRule ^android.*$ http://localhost/work/simreg_newvoda/api/upload_photo [NC,P]
+</IfModule>
